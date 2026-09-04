@@ -9,7 +9,7 @@ resolution-markers = [
 ]
 
 [[package]]
-name = "agentcore-crash-course"
+name = "bedrock-agentcore-rag-project"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

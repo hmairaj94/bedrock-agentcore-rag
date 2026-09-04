@@ -1,7 +1,7 @@
 [project]
-name = "agentcore-crash-course"
+name = "bedrock-agentcore-rag-project"
 version = "0.1.0"
-description = "Add your description here"
+description = "A memory-enabled RAG assistant deployed with Amazon Bedrock AgentCore"
 readme = "README.md"
 requires-python = ">=3.12"
 

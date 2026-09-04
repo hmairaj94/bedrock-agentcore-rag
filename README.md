@@ -1,16 +1,16 @@
-# 🤖 Amazon Bedrock AgentCore Crash Course
+# 🤖 Amazon Bedrock AgentCore RAG Project
 
-This crash course is a hands-on introduction to **Amazon Bedrock AgentCore**, a fully managed service for building and deploying intelligent agents. This repository contains progressive examples demonstrating how to build AI agents that leverage language models, RAG (Retrieval-Augmented Generation), and memory management.
+This project implements a production-oriented AI assistant with **Amazon Bedrock AgentCore**, LangGraph, semantic search, and persistent memory. It uses a Lauki telecom Q&A dataset as its knowledge base and supports local experimentation as well as deployment to AgentCore Runtime.
 
-## 📚 Course Structure
+## 📚 Project Structure
 
-This course includes three example implementations of increasing complexity:
+The project contains three agent implementations for different runtime needs:
 
-1. **`00_langgraph_agent.py`** - Basic LangGraph agent with FAQ search capabilities using LangChain
-2. **`01_agentcore_runtime.py`** - AgentCore runtime integration with tool-based FAQ search and query reformulation
-3. **`02_agentcore_memory.py`** - Advanced agent with memory management for maintaining conversation history and user preferences
+1. **`00_langgraph_agent.py`** - Local LangGraph agent with FAQ search capabilities
+2. **`01_agentcore_runtime.py`** - Deployable AgentCore runtime with tool-based FAQ search and query reformulation
+3. **`02_agentcore_memory.py`** - Memory-enabled AgentCore agent that maintains conversation history and user preferences
 
-Each example uses the **Lauki Q&A dataset** (`lauki_qna.csv`) as a knowledge base for the agent to search and provide answers to user questions.
+All implementations use the **Lauki Q&A dataset** (`lauki_qna.csv`) as a searchable knowledge base.
 
 ## 🛠️ **Set-up & Pre-requisites**
 
@@ -48,7 +48,8 @@ Or follow the [uv installation guide](https://docs.astral.sh/uv/getting-started/
 ### Step 1: Clone or Download the Repository
 
 ```bash
-cd agentcore-crash-course
+git clone https://github.com/hmairaj94/agentcore.git
+cd agentcore
 ```
 
 ### Step 2: Install Dependencies
@@ -78,7 +79,7 @@ HF_API_KEY=your_huggingface_api_key_here
 
 ## ▶️ Running the Agents
 
-### Example 1: Basic LangGraph Agent
+### Run the Local LangGraph Agent
 
 A simple agent implementation using LangGraph with FAQ search capabilities:
 
@@ -88,7 +89,7 @@ python 00_langgraph_agent.py
 
 This will run an agent that answers the question "Explain roaming activation" using semantic search over the FAQ knowledge base.
 
-### Example 2: AgentCore Runtime Agent
+### Deploy the AgentCore Runtime
 
 An agent deployed in the AgentCore runtime with tool-based search and query reformulation:
 
@@ -110,13 +111,13 @@ Test the deployed agent:
 agentcore invoke '{"prompt": "Explain roaming activation"}'
 ```
 
-This example demonstrates:
+This component provides:
 
 - Tool definitions for FAQ search
 - Query reformulation for complex questions
 - AgentCore entrypoint for production deployment
 
-### Example 3: AgentCore with Memory
+### Deploy AgentCore with Memory
 
 An advanced agent with conversation memory and user preferences:
 
@@ -138,7 +139,7 @@ Test the deployed agent:
 agentcore invoke '{"prompt": "Remember my preference and answer my question"}'
 ```
 
-This example demonstrates:
+This component provides:
 
 - Persistent memory using AgentCore Memory
 - Pre and post-model hooks for memory management
